@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Image Loader</title>
+
+        <link rel="stylesheet" type="text/css" href="style.css" />
+
+        <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/JavaScript" src="ImageLoader/js/jquery.dop.ImageLoader.js"></script>
+
+        <script type="text/JavaScript">
+        <!--    
+           $(function(){
+                $('body').DOPImageLoader({'Container':'#gallery1', 'CacheBuster':true});
+                $('body').DOPImageLoader({'Container':'#gallery2'});
+                $('body').DOPImageLoader({'Container':'#image31', 'ImageSize':'fill'});
+                $('body').DOPImageLoader({'Container':'#image32', 'ImageSize':'proportionally'});
+                $('body').DOPImageLoader({'Container':'#image33', 'ImageSize':'container'});
+                $('body').DOPImageLoader({'Container':'#image34', 'ImageSize':'none'});
+                $('body').DOPImageLoader({'Container':'#image41', 'LoaderURL': 'ImageLoader/images/loader2.gif'});
+                $('body').DOPImageLoader({'Container':'#image42', 'LoaderURL': 'ImageLoader/images/loader3.gif'});
+                $('body').DOPImageLoader({'Container':'#gallery5', 'SuccessCallback':'imageLoadSuccess()', 'ErrorCallback':'imageLoadError()'});
+           });
+           $(document).ready(function(){
+                $('#reload1').click(function(){
+                    $('#gallery1').html('<span class="image"><img src="images/image1.jpg" title="Image 1" alt="" /></span><span class="image"><img src="images/image2.jpg" title="Image 2" alt="" /></span><span class="image"><img src="images/image5.jpg" title="Image 3" alt="" /></span><span class="image"><img src="images/image6.jpg" title="Image 4" alt="" /></span><br class="clear" />');
+                    $('body').DOPImageLoader({'Container':'#gallery1', 'CacheBuster':true});
+                });
+                $('#reload2').click(function(){
+                    $('#gallery2').html('<span class="image"><img src="images/invalidurl.jpg" title="No Image" alt="" /></span><br class="clear" />');
+                    $('body').DOPImageLoader({'Container':'#gallery2', 'CacheBuster':true});
+                });
+                $('#reload3').click(function(){
+                    $('#gallery3').html('<span class="image" id="image31"><img src="images/image3.jpg" title="Resize " alt="" /></span><span class="image" id="image32"><img src="images/image3.jpg" title="Image 2" alt="" /></span><span class="image" id="image33"><img src="images/image3.jpg" title="Image 3" alt="" /></span><span class="image" id="image34"><img src="images/image4.jpg" title="Image 2" alt="" /></span><br class="clear" />');
+                    $('body').DOPImageLoader({'Container':'#image31', 'ImageSize':'fill', 'CacheBuster':true});
+                    $('body').DOPImageLoader({'Container':'#image32', 'ImageSize':'proportionally', 'CacheBuster':true});
+                    $('body').DOPImageLoader({'Container':'#image33', 'ImageSize':'container', 'CacheBuster':true});
+                    $('body').DOPImageLoader({'Container':'#image34', 'ImageSize':'none', 'CacheBuster':true});
+                });
+                $('#reload4').click(function(){
+                    $('#gallery4').html('<span class="image" id="image41"><img src="images/image7.jpg" title="Image 1" alt="" /></span><span class="image" id="image42"><img src="images/image8.jpg" title="Image 2" alt="" /></span><br class="clear" />');
+                    $('body').DOPImageLoader({'Container':'#image41', 'LoaderURL': 'ImageLoader/images/loader2.gif', 'CacheBuster':true});
+                    $('body').DOPImageLoader({'Container':'#image42', 'LoaderURL': 'ImageLoader/images/loader3.gif', 'CacheBuster':true});
+                });
+                $('#reload5').click(function(){
+                    $('#gallery5').html('<span class="image2" id="image51"><img src="images/image8.jpg" title="Image 1" alt="" /></span><span class="text" id="image-loaded"></span><span class="image2" id="image52"><img src="images/invalidurl.jpg" title="No Image" alt="" /></span><span class="text" id="image-not-loaded"></span>');
+                    $('body').DOPImageLoader({'Container':'#gallery5', 'SuccessCallback':'imageLoadSuccess()', 'ErrorCallback':'imageLoadError()', 'CacheBuster':true});
+                });
+           });
+
+           function imageLoadSuccess(){
+               $('#image-loaded').html('Image loaded! A function displays this text.');
+           }
+
+           function imageLoadError(){
+               $('#image-not-loaded').html('Image not loaded! A function displays this text.');
+           }
+        -->
+        </script>
+    </head>
+    <body>
+
+        <h1>Image Loader</h1>
+        <div class="title">
+            <h2>Load in order</h2>
+            <input type="button" name="reload1" id="reload1" class="reload-btn" value="Reload" />
+        </div>
+        <div class="gallery" id="gallery1">
+            <span class="image">
+                <img src="images/image1.jpg" title="Image 1" alt="" />
+            </span>
+            <span class="image">
+                <img src="images/image2.jpg" title="Image 2" alt="" />
+            </span>
+            <span class="image">
+                <img src="images/image5.jpg" title="Image 3" alt="" />
+            </span>
+            <span class="image">
+                <img src="images/image6.jpg" title="Image 4" alt="" />
+            </span>
+            <br class="clear" />
+        </div>
+        <div class="title">
+            <h2>Load an icon when the URL to the image is invalid</h2>
+            <input type="button" name="reload2" id="reload2" class="reload-btn" value="Reload" />
+        </div>
+        <div class="gallery" id="gallery2">
+            <span class="image">
+                <img src="images/invalidurl.jpg" title="No Image" alt="" />
+            </span>
+            <br class="clear" />
+        </div>
+        <div class="title">
+            <h2>Resize (fill, proportionally, container, none)</h2>
+            <input type="button" name="reload3" id="reload3" class="reload-btn" value="Reload" />
+        </div>
+        <div class="gallery" id="gallery3">
+            <span class="image" id="image31">
+                <img src="images/image3.jpg" title="Resize " alt="" />
+            </span>
+            <span class="image" id="image32">
+                <img src="images/image3.jpg" title="Image 2" alt="" />
+            </span>
+            <span class="image" id="image33">
+                <img src="images/image3.jpg" title="Image 3" alt="" />
+            </span>
+            <span class="image" id="image34">
+                <img src="images/image4.jpg" title="Image 2" alt="" />
+            </span>
+            <br class="clear" />
+        </div>
+        <div class="title">
+            <h2>Different Loaders</h2>
+            <input type="button" name="reload4" id="reload4" class="reload-btn" value="Reload" />
+        </div>
+        <div class="gallery" id="gallery4">
+            <span class="image" id="image41">
+                <img src="images/image7.jpg" title="Image 1" alt="" />
+            </span>
+            <span class="image" id="image42">
+                <img src="images/image8.jpg" title="Image 2" alt="" />
+            </span>
+            <br class="clear" />
+        </div>
+        <div class="title">
+            <h2>Call functions when the image is loaded or when not loading</h2>
+            <input type="button" name="reload5" id="reload5" class="reload-btn" value="Reload" />
+        </div>
+        <div class="gallery" id="gallery5">
+            <span class="image2" id="image51">
+                <img src="images/image1.jpg" title="Image 1" alt="" />
+            </span>
+            <span class="text" id="image-loaded"></span>
+            <span class="image2" id="image52">
+                <img src="images/invalidurl.jpg" title="No Image" alt="" />
+            </span>
+            <span class="text" id="image-not-loaded"></span>
+        </div>
+        <div style="height: 30px;"></div>
+    </body>
+</html>
